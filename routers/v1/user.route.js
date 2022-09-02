@@ -3,6 +3,7 @@ const {
   allUsers,
   randomUser,
   saveUser,
+  updateUser,
 } = require("../../controllers/users.controller");
 
 const router = express.Router();
@@ -58,7 +59,10 @@ router
    * @apiError (Unauthorized 401)  Unauthorized  Only authenticated users can access the data
    * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
    */
-  .post(saveUser)
+  .post(saveUser);
+
+router
+  .route("/:id")
   /**
    * @api {patch} /api/v1/users/ update a user
    * @apiDescription Get all the tools
@@ -74,5 +78,5 @@ router
    * @apiError (Unauthorized 401)  Unauthorized  Only authenticated users can access the data
    * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
    */
-  .patch();
+  .put(updateUser);
 module.exports = router;
