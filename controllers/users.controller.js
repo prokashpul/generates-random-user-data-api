@@ -13,3 +13,11 @@ module.exports.allUsers = (req, res, next) => {
   const { limit, page } = req.query;
   res.send(users.slice(0, limit));
 };
+
+//save user
+
+module.exports.saveUser = (req, res) => {
+  const user = req.body;
+  users.push(user);
+  res.send(users);
+};
