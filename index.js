@@ -16,7 +16,7 @@ app.use(errorHandler);
 app.use("/api/v1/users", userRoute);
 
 app.get("/", (req, res) => {
-  res.send("Welcome to Server");
+  res.sendFile(__dirname + "/public/index.html");
 });
 
 app.all("*", (req, res) => {
