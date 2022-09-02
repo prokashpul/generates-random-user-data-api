@@ -4,6 +4,7 @@ const {
   randomUser,
   saveUser,
   updateUser,
+  deleteUser,
 } = require("../../controllers/users.controller");
 
 const router = express.Router();
@@ -78,5 +79,6 @@ router
    * @apiError (Unauthorized 401)  Unauthorized  Only authenticated users can access the data
    * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
    */
-  .put(updateUser);
+  .put(updateUser)
+  .delete(deleteUser);
 module.exports = router;

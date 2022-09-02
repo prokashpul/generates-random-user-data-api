@@ -35,3 +35,10 @@ module.exports.updateUser = (req, res) => {
   updateUser.contact = req.body.contact;
   res.send(updateUser);
 };
+// delete user
+
+module.exports.deleteUser = (req, res) => {
+  const { id } = req.params;
+  const deleteUser = users.filter((user) => user.id !== Number(id));
+  res.send(deleteUser);
+};
